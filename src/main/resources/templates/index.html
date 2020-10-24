@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <form th:method="POST" th:action="@{/}" th:object="${message}">
+        <input type="text" th:field="*{text}" name="text" placeholder="Input message">
+        <input type="text" th:field="*{tag}" name="tag" placeholder="Tag">
+        <button type="submit">Add</button>
+    </form>
+</div>
+<h1>Message list</h1>
+<div th:each="message : ${messages}">
+
+    <br/>
+    <div>
+        <b th:text="${message.getId()}">id</b>
+        <span th:text="${message.getText()}">text</span>
+        <i th:text="${message.getTag()}">tag</i>
+    </div>
+</div>
+</body>
+</html>
